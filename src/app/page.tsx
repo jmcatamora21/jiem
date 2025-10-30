@@ -31,12 +31,13 @@ function useMediaQuery(query: string) {
   return matches;
 }
 
-interface HeaderProps {
-  activeIndex: number;
+interface AppProps {
+  activeIndex: number,
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+ 
 }
 
-function Header({ activeIndex, setActiveIndex }: HeaderProps) {
+function Header({ activeIndex, setActiveIndex }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   const scrollTo = (id: string) => {
@@ -96,7 +97,7 @@ function Header({ activeIndex, setActiveIndex }: HeaderProps) {
  )
 }
 
-function Intro({ activeIndex, setActiveIndex }: HeaderProps) {
+function Intro({ activeIndex, setActiveIndex }: AppProps) {
   const [homeRef, homeInView] = useInView({ threshold: .8 });
 
   useEffect(() => {
@@ -139,7 +140,7 @@ function Intro({ activeIndex, setActiveIndex }: HeaderProps) {
   )
 }
 
-function Projects({ activeIndex, setActiveIndex }: HeaderProps) {
+function Projects({ activeIndex, setActiveIndex }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const controls = useAnimation();
@@ -423,7 +424,7 @@ function Projects({ activeIndex, setActiveIndex }: HeaderProps) {
   )
 }
 
-function Services({ activeIndex, setActiveIndex }: HeaderProps) {
+function Services({ activeIndex, setActiveIndex  }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const controls = useAnimation();
@@ -653,7 +654,7 @@ function Services({ activeIndex, setActiveIndex }: HeaderProps) {
   )
 }
 
-function TechStack({ activeIndex, setActiveIndex }: HeaderProps) {
+function TechStack({ activeIndex, setActiveIndex  }: AppProps) {
 
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
@@ -969,7 +970,7 @@ function TechStack({ activeIndex, setActiveIndex }: HeaderProps) {
   )
 }
 
-function Contact({ activeIndex, setActiveIndex }: HeaderProps) {
+function Contact({ activeIndex, setActiveIndex }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -1117,62 +1118,50 @@ function Contact({ activeIndex, setActiveIndex }: HeaderProps) {
   );
 }
 
-export default function Portfolio() {
- const [activeIndex, setActiveIndex] = useState(0);
+interface LoadedProps {
+  loaded: boolean,
+  setLoaded: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Preload() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const handleAllImagesLoaded = () => {
-      const images = Array.from(document.images);
-      if (images.length === 0) {
-        setLoaded(true);
-        return;
-      }
-
-      let loadedCount = 0;
-      const onImageLoad = () => {
-        loadedCount++;
-        if (loadedCount === images.length) {
-          setLoaded(true);
-        }
-      };
-
-      images.forEach((img) => {
-        if (img.complete) {
-          onImageLoad();
-        } else {
-          img.addEventListener("load", onImageLoad);
-          img.addEventListener("error", onImageLoad); // count failed images too
-        }
-      });
-
-      return () => {
-        images.forEach((img) => {
-          img.removeEventListener("load", onImageLoad);
-          img.removeEventListener("error", onImageLoad);
-        });
-      };
+    const handleLoad = () => {
+      setLoaded(true);
     };
 
-    handleAllImagesLoaded();
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, []);
 
   return (
     <>
-      {loaded ? (
-        <main>
-          <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-          <Intro activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-          <Projects activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-          <Services activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-          <TechStack activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-          <Contact activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-        </main>
-      ) : (
-        <div>
-          <p style={{padding:"5px"}}>Please wait...</p>
+      {!loaded && ( 
+        <div className="preload">
+          <p style={{ padding: "5px" }}>Please wait...</p>
         </div>
       )}
+    </>
+  );
+}
+
+export default function Portfolio() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  
+  return (
+    <>
+      <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
+      <Intro activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+      <Projects activeIndex={activeIndex} setActiveIndex={setActiveIndex}  />
+      <Services activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+      <TechStack activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+      <Contact activeIndex={activeIndex}  setActiveIndex={setActiveIndex} />
+      <Preload />
     </>
   );
 }

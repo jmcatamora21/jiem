@@ -709,3 +709,13 @@ body {
   align-self: flex-end;
   cursor: pointer;
 }
+
+.preload{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: var(--dark);
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
