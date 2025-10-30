@@ -1,0 +1,114 @@
+[
+    {
+        "name": "Frontend",
+        "icons_list": [
+            {
+                "name" :"HTML",
+                "path" :"/ic_1.png"
+            },
+            {
+                "name": "CSS",
+                "path": "/ic_2.png"
+            },
+            {
+                "name": "Javascript",
+                "path": "/ic_3.png"
+            },
+            {
+                "name": "React",
+                "path": "/ic_4.png"
+            },
+            {
+                "name": "NextJS",
+                "path": "/ic_5.png"
+            },
+            {
+                "name": "Tailwind CSS",
+                "path": "/ic_6.png"
+            }
+        ]
+    },
+    {
+        "name": "Backend",
+        "icons_list": [
+            {
+                "name": "NodeJS",
+                "path": "/ic_7.png"
+            },
+            {
+                "name": "Python",
+                "path": "/ic_8.png"
+            }
+        ]
+    },
+
+    {
+        "name": "Databases",
+        "icons_list": [
+            {
+                "name": "MongoDB",
+                "path": "/ic_9.png"
+            },
+            {
+                "name": "PostgreSQL",
+                "path": "/ic_10.png"
+            },
+            {
+                "name": "MySQL",
+                "path": "/ic_11.png"
+            }
+        ]
+    },
+
+    {
+        "name": "Mobile Development",
+        "icons_list": [
+            {
+                "name": "JAVA",
+                "path": "/ic_12.png"
+            },
+            {
+                "name": "React Native",
+                "path": "/ic_13.png"
+            },
+            {
+                "name": "Flutter",
+                "path": "/ic_14.png"
+            }
+        ]
+    },
+
+    {
+        "name": "UI/UX & Design",
+        "icons_list": [
+             {
+                "name": "Figma",
+                "path": "/ic_15.png"
+            },
+            {
+                "name": "Adobe",
+                "path": "/ic_16.png"
+            }
+        ]
+    },
+
+    {
+        "name": "Tools & DevOps",
+        "icons_list": [
+            {
+                "name": "Git",
+                "path": "/ic_17.png"
+            },
+            {
+                "name": "Github",
+                "path": "/ic_18.png"
+            },
+            {
+                "name": "Docker",
+                "path": "/ic_19.png"
+            }
+        ]
+    }
+
+    
+]

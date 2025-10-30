@@ -1,0 +1,243 @@
+/* small screens */
+@media (max-width: 768px) {
+    .header{
+        padding: 15px;
+    }
+    .ls{
+        display: none !important;
+    }
+    .hero-wrapper{
+        transform: translateY(-15%);
+    }
+
+    .hero-wrapper{
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+
+    .projects-wrapper{
+        margin-top: 0;
+      
+    }
+
+    .hero-wrapper .img-container{
+        position: relative;
+        max-width: 60%;
+    }
+
+    .hero-texts-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .lt{
+        position: absolute;
+        top: -7px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        text-transform: uppercase;
+    }
+    .projects-menu ul li.active::before{
+        left: -10px;
+        width: 5px;
+        height: 5px;
+    }
+
+    .projects-container{
+        column-gap: 10px;
+    }
+
+    .projects-menu{
+        margin-top: 20px;
+    }
+
+    .projects{
+        padding: 10px;
+    }
+
+    .projects-list > div{
+        min-height: clamp(6.25rem, 2.2436rem + 21.3675vw, 12.5rem) !important;
+    }
+
+    .projects-list{
+        grid-gap: 10px;
+    }
+
+    .projects-container{
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .projects-menu ul{
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .projects-menu ul li.active{
+        color: var(--orange);
+        position: relative;
+    }
+
+    .projects-menu ul{
+        font-weight: 300;
+    }
+
+    .services{
+        flex-direction: column-reverse;
+    }
+
+    .services .title{
+        text-align: center;
+    }
+
+    .services img{
+        max-width: 70%;
+        object-fit: contain;
+    }
+
+    .services-2{
+        flex-direction: column;
+    }
+
+    .services-image-container{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .active-btn{
+        padding: 4px 10px;
+    }
+
+    .tech-stacks h4{
+        margin-left: -20px;
+    }
+
+    .contact-container{
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .footer-form.form-wrapper > div{
+        width: 100%;
+    }
+
+    .contact-container > div:nth-child(1) {
+        display: flex;
+        justify-content: space-between !important;
+        flex-direction: row !important;
+    }
+
+
+}
+
+@media (max-width: 1000px) {
+    .projects-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-container > div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        row-gap: 15px;
+    }
+
+    .footer-form.form-wrapper > div{
+        width: 100% !important; 
+    }
+}
+
+@media (min-width: 1001px) {
+    .projects-list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+
+/* tablet to large screens */
+@media (min-width: 769px) {
+    .header{
+        box-shadow: 0 0 2px rgba(0,0,0,0.5);
+        padding: 20px 50px;
+        background: var(--dark);
+        top: 0;
+        position: sticky;
+        z-index: 10;
+    }
+
+    .hero-wrapper{
+        justify-content: center;
+    }
+
+    .ms{
+        display: none;
+    }
+
+    .projects-wrapper{
+        padding-top: 40px;
+    }
+    
+    .projects-menu ul li.active::before{
+        left: -20px;
+        width: 7px;
+        height: 7px;
+    }
+
+    .projects-menu{
+        margin-top: 20px;
+    }
+
+    .projects-container{
+        padding: 0 50px;
+    }
+
+   .projects-menu ul li.active::before{
+        content: "";
+        border-radius: 50%;
+        background: var(--orange);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: circle .7s forwards;
+    }
+
+    .projects-menu ul li.active{
+        color: #fff;
+        position: relative;
+    }
+
+    .services > div{
+        padding: 0 20px;
+    }
+
+    .active-btn{
+        padding: 8px 15px;
+    }
+
+    .tech-stacks ul{
+        padding-left: 20px;
+    }
+
+    .contact-container{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .contact-container > div{
+        flex: 1;
+    }
+
+    .footer-form.form-wrapper > div{
+        width: 80%;
+    }
+
+
+}
