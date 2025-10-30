@@ -1137,6 +1137,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleLoad = () => {
+      document.body.style.overflowY = "auto";
       setLoaded(true);
     };
 
