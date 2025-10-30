@@ -1122,15 +1122,39 @@ export default function Portfolio() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const handleLoad = () => {
-      setLoaded(true);
+    const handleAllImagesLoaded = () => {
+      const images = Array.from(document.images);
+      if (images.length === 0) {
+        setLoaded(true);
+        return;
+      }
+
+      let loadedCount = 0;
+      const onImageLoad = () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setLoaded(true);
+        }
+      };
+
+      images.forEach((img) => {
+        if (img.complete) {
+          onImageLoad();
+        } else {
+          img.addEventListener("load", onImageLoad);
+          img.addEventListener("error", onImageLoad); // count failed images too
+        }
+      });
+
+      return () => {
+        images.forEach((img) => {
+          img.removeEventListener("load", onImageLoad);
+          img.removeEventListener("error", onImageLoad);
+        });
+      };
     };
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
+
+    handleAllImagesLoaded();
   }, []);
 
   return (
