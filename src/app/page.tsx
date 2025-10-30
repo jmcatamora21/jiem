@@ -34,10 +34,10 @@ function useMediaQuery(query: string) {
 interface AppProps {
   activeIndex: number,
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
- 
+  loaded: boolean,
 }
 
-function Header({ activeIndex, setActiveIndex }: AppProps) {
+function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   const scrollTo = (id: string) => {
@@ -97,7 +97,7 @@ function Header({ activeIndex, setActiveIndex }: AppProps) {
  )
 }
 
-function Intro({ activeIndex, setActiveIndex }: AppProps) {
+function Intro({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const [homeRef, homeInView] = useInView({ threshold: .8 });
 
   useEffect(() => {
@@ -108,39 +108,37 @@ function Intro({ activeIndex, setActiveIndex }: AppProps) {
 
   return (
     <div className="hero-wrapper" id="home" ref={homeRef}>
-    
-      <div className="img-container">
+      <div className={loaded ? 'img-container' : ''}>
         <div className="bg-circle ms"></div>
         <img src="/cartoonme.png" alt=""/>
       </div>
       <div className="hero-texts-wrapper">
-        <div className="hero-upper-text">
+        <div className={loaded ? 'hero-upper-text' : ''}>
           <h1 className="">Hi there!</h1>
           <h2 className="">&nbsp;&nbsp;I'm John,</h2>
         </div>
-        <div className="hero-lower-text ac hero-fs ls">
+        <div className={loaded ? 'hero-lower-text ac hero-fs ls' : ''}>
           <p>a Software Developer who builds fast, </p>
           <p>&nbsp; reliable, and user-friendly web apps</p>
         </div>
-        <div className="hero-lower-text hero-fs ms">
+        <div className={loaded ? 'hero-lower-text hero-fs ms' : ''}>
           <h3 style={{fontWeight:"200"}}>a Software Developer</h3>
         </div>
         <div>
           <a href="/resume.pdf" download={true}><button className="cv-d-btn active-btn ms fs-13 mt-5"><img src="/download_icon2.svg"/>Download CV</button></a>
         </div>
-        
-        <div className="hero-lower-text-2 hero-fs ls">
+        <div className={loaded ? 'hero-lower-text-2 hero-fs ls' : ''}>
           <p>I create custom web applications, automation tools,</p>
           <p>&nbsp;and interfaces, that make technology work for you</p>
           <p>&nbsp;not against you</p>
         </div>
-        <button className="view-projects-btn active-btn mt-15 ls"><img src="/folders_icon.svg"/> View Projects</button>
+        <button className={loaded ? 'view-projects-btn active-btn mt-15 ls' : ''}><img src="/folders_icon.svg"/> View Projects</button>
       </div>
     </div>
   )
 }
 
-function Projects({ activeIndex, setActiveIndex }: AppProps) {
+function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const controls = useAnimation();
@@ -424,7 +422,7 @@ function Projects({ activeIndex, setActiveIndex }: AppProps) {
   )
 }
 
-function Services({ activeIndex, setActiveIndex  }: AppProps) {
+function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const controls = useAnimation();
@@ -654,7 +652,7 @@ function Services({ activeIndex, setActiveIndex  }: AppProps) {
   )
 }
 
-function TechStack({ activeIndex, setActiveIndex  }: AppProps) {
+function TechStack({ activeIndex, setActiveIndex, loaded  }: AppProps) {
 
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
@@ -970,7 +968,7 @@ function TechStack({ activeIndex, setActiveIndex  }: AppProps) {
   )
 }
 
-function Contact({ activeIndex, setActiveIndex }: AppProps) {
+function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -1123,7 +1121,21 @@ interface LoadedProps {
   setLoaded: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function Preload() {
+function Preload({ loaded, setLoaded  }: LoadedProps) {
+  return (
+    <>
+      {!loaded && ( 
+        <div className="preload">
+          <p style={{ padding: "5px" }}>Please wait...</p>
+        </div>
+      )}
+    </>
+  );
+}
+
+export default function Portfolio() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -1139,29 +1151,16 @@ function Preload() {
     }
   }, []);
 
-  return (
-    <>
-      {!loaded && ( 
-        <div className="preload">
-          <p style={{ padding: "5px" }}>Please wait...</p>
-        </div>
-      )}
-    </>
-  );
-}
 
-export default function Portfolio() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  
   return (
     <>
-      <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
-      <Intro activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-      <Projects activeIndex={activeIndex} setActiveIndex={setActiveIndex}  />
-      <Services activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-      <TechStack activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-      <Contact activeIndex={activeIndex}  setActiveIndex={setActiveIndex} />
-      <Preload />
+      <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
+      <Intro activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
+      <Projects activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
+      <Services activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
+      <TechStack activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
+      <Contact activeIndex={activeIndex}  setActiveIndex={setActiveIndex} loaded={loaded}/>
+      <Preload loaded={loaded} setLoaded={setLoaded}/>
     </>
   );
 }
