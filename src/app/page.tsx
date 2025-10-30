@@ -422,6 +422,7 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const controls = useAnimation();
+
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [servicesRef, servicesInView] = useInView({ threshold: isLargeScreen ? .5 : .3 });
 
@@ -441,11 +442,11 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
   
   return (
     <>
-
+      <div  ref={ref}>
       <div className="services-wrapper" id="services" ref={servicesRef}>
 
         <motion.div
-          ref={ref}
+         
           initial={{opacity:0}}
           animate={controls}
           transition={{ duration: 0.6, ease: "easeOut" }}>
@@ -643,7 +644,7 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
           </div></motion.div> ):null }
         </div>
       </div>
-  
+      </div>
     </>
   )
 }
@@ -670,7 +671,7 @@ function TechStack({ activeIndex, setActiveIndex, loaded  }: AppProps) {
   })
 
   useEffect(() => {
-    if (inView) {
+    if (inView && loaded) {
       controls.set({opacity: 0, y: isLargeScreen ? 20 : 0})
       controls.start({ opacity: 1, y: 0 });
 
