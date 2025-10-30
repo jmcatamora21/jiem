@@ -10,6 +10,7 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.78.0",
     "motion": "^12.23.22",
     "next": "15.5.3",
     "react": "19.1.0",

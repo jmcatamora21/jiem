@@ -6,6 +6,9 @@ import ReactDOM from "react-dom";
 import { motion, useAnimation } from "motion/react";
 import { useInView } from "react-intersection-observer";
 
+import { supabase } from "./lib/supabase";
+
+
 
 const sections = [
   { id: "home", label: "Home" },
@@ -72,6 +75,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
   };
 
   const scrollDirection = useScrollDirection();
+  
 
   useEffect(() => {
     if (scrollDirection === "down") {
@@ -134,6 +138,23 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
   </>
  )
 }
+
+function Home() {
+  async function getProjects() {
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+    if (error) console.error(error)
+    else console.log(data)
+  }
+
+  return (
+    <div>
+      <button onClick={getProjects}>Load Projects</button>
+    </div>
+  )
+}
+
 
 function Intro({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const [homeRef, homeInView] = useInView({ threshold: .8 });
@@ -1192,6 +1213,7 @@ export default function Portfolio() {
     <>
       <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
       <Intro activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
+      <Home/>
       <Projects activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
       <Services activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
       <TechStack activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
