@@ -37,12 +37,50 @@ interface AppProps {
   loaded: boolean,
 }
 
+function useScrollDirection() {
+    const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(null);
+
+    useEffect(() => {
+      let lastScrollY = window.scrollY;
+
+      const updateScrollDirection = () => {
+        const currentScrollY = window.scrollY;
+        const direction = currentScrollY > lastScrollY ? "down" : "up";
+
+        if (direction !== scrollDirection && Math.abs(currentScrollY - lastScrollY) > 10) {
+          setScrollDirection(direction);
+        }
+
+        lastScrollY = currentScrollY > 0 ? currentScrollY : 0;
+      };
+
+      window.addEventListener("scroll", updateScrollDirection);
+
+      return () => {
+        window.removeEventListener("scroll", updateScrollDirection);
+      };
+    }, [scrollDirection]);
+
+    return scrollDirection;
+  }
+
 function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", inline: "start", block: "end"});
   };
+
+  const scrollDirection = useScrollDirection();
+
+  useEffect(() => {
+    if (scrollDirection === "down") {
+      //down
+    }
+    else if (scrollDirection === "up") {
+    
+    }
+  }, [scrollDirection]);
 
   return (
   <>
@@ -59,7 +97,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
               className={index === activeIndex ? 'active' : ''}
               onClick={() => {
                 setActiveIndex(index);
-                scrollTo(section.id)
+                scrollTo(section.id);
               }}
               >{section.label}</li>
             ))}
@@ -70,7 +108,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
           </ul>
         </div>
       ) : null}
-       <div className="header">
+       <div className={scrollDirection === "down" ? 'header hide' : 'header'} style={{  transform: scrollDirection === "up" ? "translateY(-100%)" : "translateY(0%)"}}>
     <div className="header-left">
       <h1 style={{ fontFamily: "var(--font-imperial)" }}>Jiem</h1>
       <ul className="ls">
@@ -132,7 +170,7 @@ function Intro({ activeIndex, setActiveIndex, loaded }: AppProps) {
           <p>&nbsp;and interfaces, that make technology work for you</p>
           <p>&nbsp;not against you</p>
         </div>
-        <button className={loaded ? 'view-projects-btn active-btn mt-15 ls' : ''}><img src="/folders_icon.svg"/> View Projects</button>
+        <button onClick={() => {document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", inline: "start", block: "end"});}} className={loaded ? 'view-projects-btn active-btn mt-15 ls' : ''}><img src="/folders_icon.svg"/> View Projects</button>
       </div>
     </div>
   )
@@ -662,7 +700,7 @@ function TechStack({ activeIndex, setActiveIndex, loaded  }: AppProps) {
   const icons_controls6 = useAnimation();
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
-  const [techstackRef, techstackInView] = useInView({ threshold: .5 });
+  const [techstackRef, techstackInView] = useInView({ threshold: .7 });
 
   useEffect(() => {
     if (techstackInView) {
@@ -977,7 +1015,7 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
     if (contactInView) {
       setActiveIndex(4);
     }
-  }, [])
+  })
 
   useEffect(() => {
     if (inView) {

@@ -56,6 +56,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  animation-name: header;
+  animation-duration: 1s;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes header {
+  from {
+    transform: translateY(-100%);
+  } to {
+    transform: translateY(0%);
+  }
 }
 
 .header .header-left{
@@ -101,6 +114,24 @@ body {
   color: #fff;
   position: relative;
 }
+
+.header.hide{
+  animation-name: hide;
+  animation-duration: 1s;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+
+}
+
+@keyframes hide {
+  from {
+    transform: translateY(0%);
+  } to {
+    transform: translateY(-100%);
+  }
+}
+
+
 
 .header ul li.active::before{
   content: "";
