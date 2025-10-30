@@ -774,7 +774,7 @@ function TechStack({ activeIndex, setActiveIndex, loaded  }: AppProps) {
         transition: { duration: 0.6, ease: "easeOut", delay: i * 0.15 + 1.5 },
       }));
     }
-  }, [inView, controls, icons_controls, icons_controls2, icons_controls3, icons_controls4, icons_controls5, icons_controls6]);
+  }, [inView, controls, icons_controls, icons_controls2, icons_controls3, icons_controls4, icons_controls5, icons_controls6, loaded]);
   
   return (
     <>
@@ -977,7 +977,7 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
     if (contactInView) {
       setActiveIndex(4);
     }
-  })
+  }, [])
 
   useEffect(() => {
     if (inView) {
