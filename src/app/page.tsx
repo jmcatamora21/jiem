@@ -152,12 +152,11 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
       setActiveIndex(1);
     }
     if (inView) {
-      if (!hasAnimated) {
+      if (!hasAnimated && loaded) {
         controls.set({opacity:0, y: isLargeScreen ? 20 : 0})
         controls.start({ opacity: 1, y: 0 });
         setHasAnimated(true);
       }
-      
     };
   }, [inView, controls, projectsInView]);
 
@@ -165,8 +164,6 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
     group: string,
     list: string[]
   }
-
-  
 
   const [group, setGroup] = useState<object[]>([]);
   const [currentGroup, setCurrentGroup] = useState("b_tools");
@@ -334,7 +331,6 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
       </Modal>
       <div ref={ref}>
       <div className="projects-wrapper" id="projects" ref={projectsRef}>
-   
         <motion.div
           initial={{ opacity: 0 }}
           animate={controls}
@@ -435,7 +431,7 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
       setActiveIndex(2);
     }
     if (inView) {
-      if (!hasAnimated) {
+      if (!hasAnimated && loaded) {
         controls.set({opacity: 0, y: isLargeScreen ? 20 : 0})
         controls.start({ opacity: 1, y: 0 });
         setHasAnimated(true);
@@ -459,10 +455,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
         <div className="services-1 services">
           {isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, x: -50 }}           
-            whileInView={{ opacity: 1, x: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={ loaded ? { opacity: 0, x: -50 } : false}           
+            whileInView={loaded ? { opacity: 1, x: 0 } : {}}        
+            transition={loaded ? { duration: 1, ease: "easeOut" } : {}}
+            viewport={loaded ? { once: true, amount: 0.3 } : {}}
             >
             <div>
               <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>Custom Web Applications & Websites</h4>
@@ -478,10 +474,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
           ) :null}
           {!isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, y: 50 }}           
-            whileInView={{ opacity: 1, y: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.1 }}
+            initial={ loaded ?{ opacity: 0, y: 50 } : false}           
+            whileInView={ loaded ? { opacity: 1, y: 0 } : {}}        
+            transition={ loaded ? { duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ? { once: true, amount: 0.1 } : {}}
             >
             <div>
               <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>Custom Web Applications & Websites</h4>
@@ -497,10 +493,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
           ) :null}
           {isLargeScreen ? (
              <motion.div
-            initial={{ opacity: 0, x: 50 }}           
-            whileInView={{ opacity: 1, x: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={ loaded ?{ opacity: 0, x: 50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, x: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.3 } : {}}
             >
             <div className="services-image-container">
               <img src="./services_1.png"/>
@@ -510,10 +506,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
           ):null}
           {!isLargeScreen ? (
              <motion.div
-            initial={{ opacity: 0, y: 50 }}           
-            whileInView={{ opacity: 1, y: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.1 }}
+            initial={ loaded ?{ opacity: 0, y: 50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, y: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.1 } : {}}
             >
             <div className="services-image-container">
               <img src="./services_1.png"/>
@@ -526,10 +522,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
         <div className="services-2 services">
           {isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, x: -50 }}           
-            whileInView={{ opacity: 1, x: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={ loaded ?{ opacity: 0, x: -50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, x: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.3 } : {}}
             >
             <div className="services-image-container">
               <img src="./services_2.png"/>
@@ -538,10 +534,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
           ):null}
           {!isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, y: 50 }}           
-            whileInView={{ opacity: 1, y: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.1 }}
+            initial={ loaded ?{ opacity: 0, y: 50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, y: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.1 } : {}}
             >
             <div className="services-image-container">
               <img src="./services_2.png"/>
@@ -551,10 +547,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
 
           {isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, x: 50 }}           
-            whileInView={{ opacity: 1, x: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={ loaded ?{ opacity: 0, x: 50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, x: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.3 } : {}}
             >
                 <div>
             <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>Automation Tools & Browser Extensions</h4>
@@ -570,10 +566,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
 
           {!isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, y: 50 }}           
-            whileInView={{ opacity: 1, y: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.1 }}
+            initial={ loaded ?{ opacity: 0, y: 50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, y: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.1 } : {}}
             >
                 <div>
             <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>Automation Tools & Browser Extensions</h4>
@@ -591,10 +587,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
         <div className="services-3 services">
           {isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, x: -50 }}           
-            whileInView={{ opacity: 1, x: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={ loaded ?{ opacity: 0, x: -50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, x: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.3 } : {}}
             >
               <div>
                 <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>UI/UX Implementation & Design</h4>
@@ -610,10 +606,10 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
 
             {!isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, y: 50 }}           
-            whileInView={{ opacity: 1, y: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.1 }}
+            initial={ loaded ?{ opacity: 0, y: 50 } : false}     
+            whileInView={ loaded ?{ opacity: 1, y: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.1 } : {}}
             >
               <div>
                 <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>UI/UX Implementation & Design</h4>
@@ -629,19 +625,19 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
          
          {isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, x: 50 }}           
-            whileInView={{ opacity: 1, x: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={ loaded ?{ opacity: 0, x: 50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, x: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.3 } : {}}
             ><div className="services-image-container">
             <img src="./services_3.png"/>
           </div></motion.div> ):null }
           {!isLargeScreen ? (
             <motion.div
-            initial={{ opacity: 0, y: 50 }}           
-            whileInView={{ opacity: 1, y: 0 }}        
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.1 }}
+            initial={ loaded ?{ opacity: 0, y: 50 } : false}           
+            whileInView={ loaded ?{ opacity: 1, y: 0 } : {}}        
+            transition={ loaded ?{ duration: 1, ease: "easeOut" } : {}}
+            viewport={ loaded ?{ once: true, amount: 0.1 } : {}}
             ><div className="services-image-container">
             <img src="./services_3.png"/>
           </div></motion.div> ):null }
