@@ -1118,16 +1118,37 @@ function Contact({ activeIndex, setActiveIndex }: HeaderProps) {
 }
 
 export default function Portfolio() {
-  const [activeIndex, setActiveIndex] = useState(0);
+ const [activeIndex, setActiveIndex] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setLoaded(true);
+    };
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
+  }, []);
 
   return (
     <>
-      <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
-      <Intro activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
-      <Projects activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
-      <Services activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
-      <TechStack activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
-      <Contact activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
+      {loaded ? (
+        <main>
+          <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+          <Intro activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+          <Projects activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+          <Services activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+          <TechStack activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+          <Contact activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+        </main>
+      ) : (
+        <div>
+          <p style={{padding:"5px"}}>Please wait...</p>
+        </div>
+      )}
     </>
   );
 }
