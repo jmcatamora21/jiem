@@ -8,8 +8,6 @@ import { useInView } from "react-intersection-observer";
 
 import { supabase } from "./lib/supabase";
 
-
-
 const sections = [
   { id: "home", label: "Home" },
   { id: "projects", label: "Projects" },
@@ -139,21 +137,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
  )
 }
 
-function Home() {
-  async function getProjects() {
-    const { data, error } = await supabase
-      .from("projects")
-      .select("*")
-    if (error) console.error(error)
-    else console.log(data)
-  }
 
-  return (
-    <div>
-      <button onClick={getProjects}>Load Projects</button>
-    </div>
-  )
-}
 
 
 function Intro({ activeIndex, setActiveIndex, loaded }: AppProps) {
@@ -1029,10 +1013,13 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const controls = useAnimation();
+  const [user_name, set_user_name] = useState("");
+  const [user_message, set_message] = useState("");
 
   const [contactRef, contactInView] = useInView({ threshold: .8 });
 
   useEffect(() => {
+    
     if (contactInView) {
       setActiveIndex(4);
     }
@@ -1044,6 +1031,28 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
       controls.start({ opacity: 1, y: 0 });
     }
   }, [inView, controls]);
+
+  async function sendMessage(name: string, message: string) {
+    if (name.length > 0 && message.length > 0) {
+      const { data, error } = await supabase
+        .from('messages')
+        .insert([
+          { name, message }
+      ])
+
+      if (error) {
+        //error
+        alert('An error occured!');
+      } else {
+        //success
+       
+        set_message("");set_user_name("");
+        alert('Data inserted successfully!');
+      }
+    }
+  }
+
+
 
   return (
     <div className="contact-wrapper" id="contact" ref={contactRef}>
@@ -1158,9 +1167,9 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
             <div>
               <h4 className="fs-13" style={{fontWeight:"300"}}>Send a message</h4>
               <div className="form">
-                <input className="fs-9" type="text" placeholder="Enter your name"/>
-                <textarea rows={7} className="fs-9" placeholder="Write a message"></textarea>
-                <button type="submit" className="fs-9">Submit</button>
+                <input className="fs-9" type="text" value={user_name} onChange={(e) => set_user_name(e.target.value)} placeholder="Your name or email"/>
+                <textarea rows={7} className="fs-9" value={user_message} onChange={(e) => set_message(e.target.value)} placeholder="Write a message"></textarea>
+                <button type="submit" className="fs-9" onClick={async () =>  await sendMessage(user_name, user_message)}>Submit</button>
               </div>
             </div>
           </motion.div>
@@ -1171,6 +1180,8 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
     </div>
   );
 }
+
+
 
 interface LoadedProps {
   loaded: boolean,
@@ -1208,12 +1219,10 @@ export default function Portfolio() {
     }
   }, []);
 
-
   return (
     <>
       <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
       <Intro activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
-      <Home/>
       <Projects activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
       <Services activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
       <TechStack activeIndex={activeIndex} setActiveIndex={setActiveIndex} loaded={loaded}/>
