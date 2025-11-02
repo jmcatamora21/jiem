@@ -376,7 +376,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
         </div>
       </Modal>
       <div ref={ref}>
-      <div className="projects-wrapper" id="projects" ref={projectsRef}>
+      <div className="projects-wrapper" id="projects">
         <motion.div
           initial={{ opacity: 0 }}
           animate={controls}
@@ -384,11 +384,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
           <h4 className="fs-h4 lt">Projects</h4> 
         </motion.div>
 
-        <motion.div
-       
-          initial={{ opacity: 0, y: 20 }}
-          animate={controls}
-          transition={{ duration: 0.6, ease: "easeOut" }}>
+        
         <div className="projects-container mb-20">
           <div className="projects-menu">
             <ul className="fs-13">
@@ -457,7 +453,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
             
           </div>
         </div>
-        </motion.div>
+        
       </div>
       </div>
     </>
