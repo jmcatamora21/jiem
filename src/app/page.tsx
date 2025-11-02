@@ -187,7 +187,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
-  const [projectsRef, projectsInView] = useInView({ threshold: .2});
+  const [projectsRef, projectsInView] = useInView({ threshold: .5});
 
   const [hasAnimated, setHasAnimated] = useState(false);
 
@@ -376,7 +376,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
         </div>
       </Modal>
       <div ref={ref}>
-      <div className="projects-wrapper" id="projects">
+      <div className="projects-wrapper" id="projects" ref={projectsRef}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={controls}
@@ -384,7 +384,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
           <h4 className="fs-h4 lt">Projects</h4> 
         </motion.div>
 
-        
+  
         <div className="projects-container mb-20">
           <div className="projects-menu">
             <ul className="fs-13">
@@ -453,7 +453,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
             
           </div>
         </div>
-        
+
       </div>
       </div>
     </>
