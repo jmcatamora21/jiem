@@ -336,6 +336,8 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
     } else {
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
+
+      document.body.style.overflowY = "auto";
     }
     return () => {
       document.body.style.overflow = "";
