@@ -58,11 +58,11 @@ export default function AdminDashboard() {
             <span>Anon</span>
           </div>
           <div className={activebtn == 1 ? "btn active fs-13" : "btn fs-13"} onClick={() => setActivebtn(1)}>
-            <span>3</span><br></br>
+            <span>{unreadMessages.length}</span><br></br>
             <span>Unread</span>
           </div>
           <div className={activebtn == 2 ? "btn fs-13 active" : "btn fs-13"} onClick={() => setActivebtn(2)}>
-            <span>3</span><br></br>
+            <span>{numOfConversations.length}</span><br></br>
             <span>Token</span>
           </div>
         </div>
