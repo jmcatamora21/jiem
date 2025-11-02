@@ -24,7 +24,7 @@ a{
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: clamp(0.25rem, 0.175rem + 0.4vw, 0.625rem);
   
 }
 
@@ -720,9 +720,9 @@ body {
   margin-top: 5px;
 }
 
-.footer-form.form-wrapper .form input[type='text'], .footer-form.form-wrapper .form textarea, .footer-form.form-wrapper .form button{
+.footer-form.form-wrapper .form input[type='text'], .footer-form.form-wrapper .form textarea, .footer-form.form-wrapper .form button, .anon-form button, .anon-form textarea, .login-form-wrapper input, .login-form-wrapper button{
   background: var(--ldark);
-  border: 1px solid var(--foreground);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 4px;
   padding: 7px 10px;
   color: var(--foreground);
@@ -732,14 +732,26 @@ body {
   color: rgba(255,255,255,0.3);
 }
 
-.footer-form.form-wrapper .form textarea{
+.footer-form.form-wrapper .form textarea, .anon-form textarea{
   font-family: var(--font-inter), sans-serif;
 }
 
-.footer-form.form-wrapper .form button {
+.footer-form.form-wrapper .form textarea.error,
+.footer-form.form-wrapper .form input[type='text'].error{
+  border: 1px solid red;
+}
+
+.footer-form.form-wrapper .form button, .anon-form button, .login-form-wrapper button {
   width: 30%;
   align-self: flex-end;
   cursor: pointer;
+}
+.login-form-wrapper button {
+  width: 100%;
+}
+
+.footer-form.form-wrapper .form button:disabled, .messages-wrapper button:disabled {
+  opacity: .4;
 }
 
 .preload{
@@ -750,4 +762,129 @@ body {
   z-index: 10;
   top: 0;
   left: 0;
+}
+
+.anon-page.main{
+  display: grid;
+  place-items: center;
+}
+
+.anon-page.main .main-wrapper{
+  margin-top: clamp(3.125rem, 2.5rem + 3.3333vw, 6.25rem);
+  margin-bottom: 50px;
+}
+
+.messages-container{
+  border-radius: 4px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 5px 0;
+}
+
+.messages-container > div{
+  padding: 5px 10px;
+  overflow: auto;
+}
+
+.messages .left-message{
+  display: flex;
+  align-items: start;
+  column-gap: 5px;
+  margin: 10px 0;
+  padding: 0 !important;
+}
+
+.messages .left-message .icon-container{
+  padding-top: 7px;
+}
+
+.messages .left-message .message{
+  flex: 1;
+  justify-content: start;
+  margin: 0;
+}
+
+.message{
+  display: flex;
+  justify-content: end;
+  margin: 10px 0;
+}
+
+.message > div{
+  background: var(--ldark);
+  max-width: 70%;
+  border-radius: 8px;
+  padding: 10px;
+  color: rgba(255,255,255,0.8)
+}
+
+.messages-container > div p{
+  padding: 3px 10px 3px 20px;
+}
+
+.anon-form{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.login-form-wrapper{
+  display: grid;
+  place-items: center;
+  padding: 50px 0;
+  height: 100vh;
+}
+
+.login-form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 20px;
+  border-radius: 4px;
+  height: 300px;
+  justify-content: end;
+}
+
+.dashboard-wrapper{
+
+  display: grid;
+  place-items: center;
+  padding: 100px 0;
+}
+
+.dashboard{
+
+  padding: 20px;
+  width: clamp(18.125rem, 9.25rem + 47.3333vw, 62.5rem);
+}
+
+.dash-btns{
+  display: flex;
+  grid-gap: 10px;
+}
+
+.dash-btns > div{
+  flex: 1;
+  padding: 20px;
+ 
+  text-align: center;
+}
+
+.dash-btns .btn.active{
+  background: var(--ldark)
+}
+
+.dash-container{
+  height: 350px;
+  overflow: auto;
+  border: 1px solid rgba(255,255,255,0.3)
+}
+
+.dash-container > div{
+  background: var(--ldark);
+  padding: 5px;
 }

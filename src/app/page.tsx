@@ -7,6 +7,7 @@ import { motion, useAnimation } from "motion/react";
 import { useInView } from "react-intersection-observer";
 
 import { supabase } from "./lib/supabase";
+import { getAnonId } from "./lib/anon";
 
 const sections = [
   { id: "home", label: "Home" },
@@ -209,10 +210,10 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
   }
 
   const [group, setGroup] = useState<object[]>([]);
-  const [currentGroup, setCurrentGroup] = useState("b_tools");
+  const [currentGroup, setCurrentGroup] = useState("tools");
   const [currentGroupObject, setCurrentGroupObject] = useState<Group | null>(null);
   const menuList = ['Browser Tools', 'Mobile Apps', 'UI/UX Designs', 'Websites'];
-  const menuListKeys = ['b_tools', 'm_apps', 'ui_ux', 'web'];
+  const menuListKeys = ['tools', 'm_apps', 'ui_ux', 'web'];
   const [activeIndex2, setActiveIndex2] = useState(0);
   const [innerMenuActiveIndex, setInnerMenuActiveIndex] = useState(0);
   useEffect(() => {
@@ -506,9 +507,9 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
             >
             <div>
               <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>Custom Web Applications & Websites</h4>
-              <p className="fs-10 mb-5" style={{fontWeight:"100"}}>I build fast, modern, and responsive websites and web applications that showcase brands, products, and services while solving real business problems. From dashboards and SaaS platforms to API-driven apps, I bring ideas to life with clean and reliable code.</p>
-              <span className="fs-10" style={{fontWeight:"100"}}>What I deliver:</span>
-              <ul className="fs-10" style={{fontWeight:"100"}}>
+              <p className="fs-13 mb-5" style={{fontWeight:"100"}}>I build fast, modern, and responsive websites and web applications that showcase brands, products, and services while solving real business problems. From dashboards and SaaS platforms to API-driven apps, I bring ideas to life with clean and reliable code.</p>
+              <span className="fs-13" style={{fontWeight:"100"}}>What I deliver:</span>
+              <ul className="fs-13" style={{fontWeight:"100"}}>
                 <li>Full-stack development (frontend + backend)</li>
                 <li>API integrations</li>
                 <li>Responsive and optimized performance</li>
@@ -525,9 +526,9 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
             >
             <div>
               <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>Custom Web Applications & Websites</h4>
-              <p className="fs-10 mb-5" style={{fontWeight:"100"}}>I build fast, modern, and responsive websites and web applications that showcase brands, products, and services while solving real business problems. From dashboards and SaaS platforms to API-driven apps, I bring ideas to life with clean and reliable code.</p>
-              <span className="fs-10" style={{fontWeight:"100"}}>What I deliver:</span>
-              <ul className="fs-10" style={{fontWeight:"100"}}>
+              <p className="fs-13 mb-5" style={{fontWeight:"100"}}>I build fast, modern, and responsive websites and web applications that showcase brands, products, and services while solving real business problems. From dashboards and SaaS platforms to API-driven apps, I bring ideas to life with clean and reliable code.</p>
+              <span className="fs-13" style={{fontWeight:"100"}}>What I deliver:</span>
+              <ul className="fs-13" style={{fontWeight:"100"}}>
                 <li>Full-stack development (frontend + backend)</li>
                 <li>API integrations</li>
                 <li>Responsive and optimized performance</li>
@@ -598,9 +599,9 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
             >
                 <div>
             <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>Automation Tools & Browser Extensions</h4>
-            <p className="fs-10 mb-5" style={{fontWeight:"100"}}>Save time and reduce repetitive work with custom automation solutions. I build browser extensions, scripts, and workflow tools that streamline processes and improve productivity.</p>
-            <span className="fs-10" style={{fontWeight:"100"}}>What I deliver:</span>
-            <ul className="fs-10" style={{fontWeight:"100"}}>
+            <p className="fs-13 mb-5" style={{fontWeight:"100"}}>Save time and reduce repetitive work with custom automation solutions. I build browser extensions, scripts, and workflow tools that streamline processes and improve productivity.</p>
+            <span className="fs-13" style={{fontWeight:"100"}}>What I deliver:</span>
+            <ul className="fs-13" style={{fontWeight:"100"}}>
               <li>Chrome & browser extensions</li>
               <li>Business workflow automations</li>
               <li>API integrations for apps and services</li>
@@ -617,9 +618,9 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
             >
                 <div>
             <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>Automation Tools & Browser Extensions</h4>
-            <p className="fs-10 mb-5" style={{fontWeight:"100"}}>Save time and reduce repetitive work with custom automation solutions. I build browser extensions, scripts, and workflow tools that streamline processes and improve productivity.</p>
-            <span className="fs-10" style={{fontWeight:"100"}}>What I deliver:</span>
-            <ul className="fs-10" style={{fontWeight:"100"}}>
+            <p className="fs-13 mb-5" style={{fontWeight:"100"}}>Save time and reduce repetitive work with custom automation solutions. I build browser extensions, scripts, and workflow tools that streamline processes and improve productivity.</p>
+            <span className="fs-13" style={{fontWeight:"100"}}>What I deliver:</span>
+            <ul className="fs-13" style={{fontWeight:"100"}}>
               <li>Chrome & browser extensions</li>
               <li>Business workflow automations</li>
               <li>API integrations for apps and services</li>
@@ -638,9 +639,9 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
             >
               <div>
                 <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>UI/UX Implementation & Design</h4>
-                <p className="fs-10 mb-5" style={{fontWeight:"100"}}>I create clean, simple, and user-friendly designs that make digital products easy and enjoyable to use. Whether it’s an app, a website, or a new feature, I focus on making the experience smooth, intuitive, and visually appealing.</p>
-                <span className="fs-10" style={{fontWeight:"100"}}>What I can help with:</span>
-                <ul className="fs-10" style={{fontWeight:"100"}}>
+                <p className="fs-13 mb-5" style={{fontWeight:"100"}}>I create clean, simple, and user-friendly designs that make digital products easy and enjoyable to use. Whether it’s an app, a website, or a new feature, I focus on making the experience smooth, intuitive, and visually appealing.</p>
+                <span className="fs-13" style={{fontWeight:"100"}}>What I can help with:</span>
+                <ul className="fs-13" style={{fontWeight:"100"}}>
                   <li>Designing web and mobile app interfaces</li>
                   <li>Wireframes and interactive prototypes (Figma, Adobe)</li>
                   <li>Digital product design with a focus on real user needs</li>
@@ -657,9 +658,9 @@ function Services({ activeIndex, setActiveIndex, loaded  }: AppProps) {
             >
               <div>
                 <h4 className="title fs-13 mb-5" style={{fontWeight:"300"}}>UI/UX Implementation & Design</h4>
-                <p className="fs-10 mb-5" style={{fontWeight:"100"}}>I create clean, simple, and user-friendly designs that make digital products easy and enjoyable to use. Whether it’s an app, a website, or a new feature, I focus on making the experience smooth, intuitive, and visually appealing.</p>
-                <span className="fs-10" style={{fontWeight:"100"}}>What I can help with:</span>
-                <ul className="fs-10" style={{fontWeight:"100"}}>
+                <p className="fs-13 mb-5" style={{fontWeight:"100"}}>I create clean, simple, and user-friendly designs that make digital products easy and enjoyable to use. Whether it’s an app, a website, or a new feature, I focus on making the experience smooth, intuitive, and visually appealing.</p>
+                <span className="fs-13" style={{fontWeight:"100"}}>What I can help with:</span>
+                <ul className="fs-13" style={{fontWeight:"100"}}>
                   <li>Designing web and mobile app interfaces</li>
                   <li>Wireframes and interactive prototypes (Figma, Adobe)</li>
                   <li>Digital product design with a focus on real user needs</li>
@@ -1015,6 +1016,13 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const controls = useAnimation();
   const [user_name, set_user_name] = useState("");
   const [user_message, set_message] = useState("");
+  const [messageStatus, setMessageStatus] = useState(0);
+  const statusLabels = ['Submit', 'Sending..', 'Sent'];
+  const [isSending, setIsSending] = useState(false);
+  const isEmpty = true;
+  const [btnClicked, setBtnClicked] = useState(false);
+  const [anonId, setAnonId] = useState("");
+  const [link, setLink] = useState("");
 
   const [contactRef, contactInView] = useInView({ threshold: .8 });
 
@@ -1025,7 +1033,11 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
     }
   })
 
+  
+
   useEffect(() => {
+    setAnonId(getAnonId());
+
     if (inView) {
       controls.set({opacity: 0, y: isLargeScreen ? 20 : 0})
       controls.start({ opacity: 1, y: 0 });
@@ -1034,25 +1046,45 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
 
   async function sendMessage(name: string, message: string) {
     if (name.length > 0 && message.length > 0) {
-      const { data, error } = await supabase
-        .from('messages')
-        .insert([
-          { name, message }
-      ])
+      const generateUrl = await fetch('/api/generate-link', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ anon_id: getAnonId(), name: user_name })
+      })
+      const data1 = await generateUrl.json()
+   
+      if (data1.data.is_success) {
+        setLink(data1.data.url);
+        const send_message = await fetch('/api/send-message', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, message, anon_id : anonId, token:  data1.data.token })
+        })
+        const data2 = await send_message.json();
+        if (data2.data.is_success) {
+          setMessageStatus(2);
+          setTimeout(async () => {
+            setMessageStatus(0);
+            set_message("");
+            setIsSending(false);
+          }, 1000);
 
-      if (error) {
-        //error
-        alert('An error occured!');
+          const createConvo = await fetch('/api/convo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sender_name: name, message, anon_id : anonId, token:  data1.data.token, is_admin: false })
+          })
+
+          const data3 = await createConvo.json();
+          if (data3.data.is_success) {
+            console.log("Convo:", data3.data.message)
+          }
+        } 
       } else {
-        //success
-       
-        set_message("");set_user_name("");
-        alert('Data inserted successfully!');
+        
       }
     }
   }
-
-
 
   return (
     <div className="contact-wrapper" id="contact" ref={contactRef}>
@@ -1167,16 +1199,30 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
             <div>
               <h4 className="fs-13" style={{fontWeight:"300"}}>Send a message</h4>
               <div className="form">
-                <input className="fs-9" type="text" value={user_name} onChange={(e) => set_user_name(e.target.value)} placeholder="Your name or email"/>
-                <textarea rows={7} className="fs-9" value={user_message} onChange={(e) => set_message(e.target.value)} placeholder="Write a message"></textarea>
-                <button type="submit" className="fs-9" onClick={async () =>  await sendMessage(user_name, user_message)}>Submit</button>
+                <input className={isEmpty && btnClicked ? "fs-92 error" : "fs-92" } type="text" value={user_name} onChange={(e) => set_user_name(e.target.value)} placeholder="Your name or email"/>
+                <textarea spellCheck="false" rows={7} className={isEmpty && btnClicked ? "fs-92 error" : "fs-92" } value={user_message} onChange={(e) => set_message(e.target.value)} placeholder="Write a message"></textarea>
+                <div className={link.length === 0 ? "fs-92 d-none" : "fs-92"}><p style={{fontWeight:100}}>Expect a response within a few hours via this link: <a style={{textDecoration:"underline"}} href={link} target="_blank">{link}</a></p></div>
+                <button type="submit" disabled={isSending ? true : false} className="fs-92" onClick={async () => {
+                  if (messageStatus === 0 && user_name.length > 0 && user_message.length > 0) {
+                    setMessageStatus(1);
+                    setIsSending(true);
+                    await sendMessage(user_name, user_message);
+                  } else {
+                    setBtnClicked(true);
+                    setTimeout(() => {
+                      setBtnClicked(false);
+                    }, 2500);
+                  }
+                  
+                }
+                }>{statusLabels[messageStatus]}</button>
               </div>
             </div>
           </motion.div>
           
         </div>
       </div>
-      <div className="fs-9 mt-20" style={{fontWeight:100,textAlign:"center"}}>© 2025</div>
+      <div className="fs-92 mt-20" style={{fontWeight:100,textAlign:"center"}}>© 2025</div>
     </div>
   );
 }
@@ -1202,10 +1248,10 @@ function Preload({ loaded, setLoaded  }: LoadedProps) {
 
 export default function Portfolio() {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+
     const handleLoad = () => {
       document.body.style.overflowY = "auto";
       setLoaded(true);

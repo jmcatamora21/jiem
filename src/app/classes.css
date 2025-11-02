@@ -2,6 +2,10 @@
     font-size: clamp(0.5625rem, 0.4875rem + 0.4vw, 0.9375rem);
 }
 
+.fs-92{
+    font-size: clamp(0.8125rem, 0.7875rem + 0.1333vw, 0.9375rem);
+}
+
 .fs-10{
     font-size: clamp(0.625rem, 0.5375rem + 0.4667vw, 1.0625rem);
 }
@@ -58,4 +62,32 @@
 
 .text-center{
     text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.d-none{
+    display: none;
+}
+
+.fw-100{
+    font-weight: 100;
+}
+
+.fw-200{
+    font-weight: 200;
+}
+
+.fw-300{
+    font-weight: 300;
+}
+
+.fw-400{
+    font-weight: 400;
+}
+
+.italic{
+    font-style: italic;
 }

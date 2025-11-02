@@ -134,7 +134,25 @@
         flex-direction: row !important;
     }
 
+    .anon-page.main{
+        padding: 20px;
+    }
 
+    .anon-page.main .main-wrapper{
+        width: 100%;
+    }
+
+    .sk1, .messages-container{
+        height: 300px;
+    }
+
+}
+
+@media (max-width: 425px){
+    .contact-container > div:nth-child(1) {
+        display: flex;
+        flex-direction: column !important;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -238,6 +256,15 @@
     .footer-form.form-wrapper > div{
         width: 80%;
     }
+
+    .anon-page.main .main-wrapper {
+        width: 500px;
+    }
+
+    .sk1, .messages-container{
+        height: 350px;
+    }
+    
 
 
 }

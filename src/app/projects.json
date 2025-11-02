@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Productivity tool",
         "path": "/test.png",
-        "group": "b_tools",
+        "group": "tools",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
         "sections" : ["All", "APIs"],
         "hasLiveDemo":true,
