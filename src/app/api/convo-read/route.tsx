@@ -7,7 +7,7 @@ export async function GET(req: Request) {
   const anon_id = searchParams.get("anon_id");
   const token = searchParams.get("token");
 
-  console.log("TEST")
+
   const { data, error } = await supabaseAdmin
     .from("convo")
     .update({ read: true })

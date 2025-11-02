@@ -7,7 +7,7 @@ export async function GET(req: Request) {
 
   const query = supabase.from('convo').select('*')
 
-  if (anon_id) query.eq('anon_id', anon_id).eq('token', token)
+  if (anon_id) query.eq('anon_id', anon_id).eq('token', token).order("id", {ascending: true})
 
   const { data, error } = await query
 

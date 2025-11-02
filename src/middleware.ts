@@ -30,9 +30,9 @@ export function middleware(req: NextRequest) {
   if (pathname.startsWith("/admin/login") && token) {
   
     try {
-      console.log('test 1')
+     
       const decoded = jwt.verify(token, ADMIN_JWT_SECRET) as any;
-      console.log('test 2')
+   
       if (decoded.role === "admin") {
         return NextResponse.redirect(new URL("/admin/dashboard", req.url));
       }
