@@ -105,7 +105,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
               >{section.label}</li>
             ))}
             <li>
-              <a href="/resume.pdf" download={true}>
+              <a href="/catamora cv.pdf" download={true}>
               <button className="cv-d-btn active-btn ms fs-13 mt-5"><img src="/download_icon2.svg"/> Download CV</button></a>
             </li>
           </ul>
@@ -131,7 +131,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
       <img src="/bars_icon.svg"/>
     </div>
     <div className="header-right ls">
-      <a href="/resume.pdf" download={true}><button className="cv-d-btn active-btn"><img src="/download_icon2.svg"/> Download CV</button></a>
+      <a href="/catamora cv.pdf" download={true}><button className="cv-d-btn active-btn"><img src="/download_icon2.svg"/> Download CV</button></a>
     </div>
   </div>
   </>

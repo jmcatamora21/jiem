@@ -888,3 +888,15 @@ body {
   background: var(--ldark);
   padding: 5px;
 }
+
+
+.projects img{
+  opacity: 0;
+}
+.modalImageWrapper{
+  background: var(--ldark);
+}
+
+.modalImageWrapper img {
+  opacity: 0;
+}

@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Productivity tool",
+        "name": "...",
         "path": "/test.png",
         "group": "tools",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -14,7 +14,7 @@
     },
     {
         "id": 2,
-        "name": "Technical App",
+        "name": "...",
         "path": "/test.png",
         "group": "m_apps",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -27,7 +27,7 @@
     },
     {
         "id": 3,
-        "name": "Calling Card",
+        "name": "...",
         "path": "/test.png",
         "group": "ui_ux",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -40,7 +40,7 @@
     },
     {
         "id": 4,
-        "name": "CCSI Landing Page",
+        "name": "...",
         "path": "/test.png",
         "group": "web",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -53,7 +53,7 @@
     },
     {
         "id": 5,
-        "name": "Free Movies Online",
+        "name": "...",
         "path": "/test.png",
         "group": "web",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -66,7 +66,7 @@
     },
     {
         "id": 2,
-        "name": "Technical App",
+        "name": "...",
         "path": "/test.png",
         "group": "m_apps",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -79,7 +79,7 @@
     },
     {
         "id": 3,
-        "name": "Calling Card",
+        "name": "...",
         "path": "/test.png",
         "group": "ui_ux",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -92,7 +92,7 @@
     },
     {
         "id": 4,
-        "name": "CCSI Landing Page",
+        "name": "...",
         "path": "/test.png",
         "group": "web",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -105,7 +105,7 @@
     },
     {
         "id": 5,
-        "name": "Free Movies Online",
+        "name": "...",
         "path": "/test.png",
         "group": "web",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -118,7 +118,7 @@
     },
     {
         "id": 2,
-        "name": "Technical App",
+        "name": "...",
         "path": "/test.png",
         "group": "m_apps",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -131,7 +131,7 @@
     },
     {
         "id": 3,
-        "name": "Calling Card",
+        "name": "...",
         "path": "/test.png",
         "group": "ui_ux",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -144,7 +144,7 @@
     },
     {
         "id": 4,
-        "name": "CCSI Landing Page",
+        "name": "...",
         "path": "/test.png",
         "group": "web",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -157,7 +157,7 @@
     },
     {
         "id": 5,
-        "name": "Free Movies Online",
+        "name": "...",
         "path": "/test.png",
         "group": "web",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -170,7 +170,7 @@
     },
     {
         "id": 2,
-        "name": "Technical App",
+        "name": "...",
         "path": "/test.png",
         "group": "m_apps",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -183,7 +183,7 @@
     },
     {
         "id": 3,
-        "name": "Calling Card",
+        "name": "...",
         "path": "/test.png",
         "group": "ui_ux",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -196,7 +196,7 @@
     },
     {
         "id": 4,
-        "name": "CCSI Landing Page",
+        "name": "...",
         "path": "/test.png",
         "group": "web",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
@@ -209,7 +209,7 @@
     },
     {
         "id": 5,
-        "name": "Free Movies Online",
+        "name": "...",
         "path": "/test.png",
         "group": "web",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus atque veniam sapiente deleniti porro. Quidem odio voluptate molestias quos atque quia similique quasi officiis vero nobis, inventore optio ex modi!",
