@@ -187,7 +187,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const isLargeScreen = useMediaQuery("(min-width: 769px)");
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
-  const [projectsRef, projectsInView] = useInView({ threshold: .5});
+  const [projectsRef, projectsInView] = useInView({ threshold: .2});
 
   const [hasAnimated, setHasAnimated] = useState(false);
 
