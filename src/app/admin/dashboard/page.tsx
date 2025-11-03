@@ -70,7 +70,7 @@ export default function AdminDashboard() {
           {
             activebtn == 1?
             unreadMessages.map((m, index) => {
-              const message = m['token'];
+              const message = m['message'];
               const truncated = message.length > 100 ? message.slice(0, 100) + "..." : message;
 
               return (
