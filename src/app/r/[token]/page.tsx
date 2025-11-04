@@ -18,9 +18,8 @@ async function validateToken(token: string) {
   .maybeSingle()
 
  
-  const expiresAt = new Date(data.expires_at)
 
-  return expiresAt;
+  return data;
   
 }
 
@@ -51,7 +50,7 @@ export default function AnonPage({ params }: AnonPageProps) {
   const [anonMessages, setAnonMessages] = useState([])
   const [user_message, set_message] = useState("");
   const [isSending, setIsSending] = useState(false);
-  
+  const [notCurrentSession, setNotCurrentSession] = useState(false);
 
   const ref = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -86,15 +85,20 @@ export default function AnonPage({ params }: AnonPageProps) {
     setAnonId(id)
     const run = async () => {
       
-      const expiresAt = await validateToken(token);
-       const now = new Date()
+      const DATA = await validateToken(token);
+      const expiresAt = new Date(DATA.expires_at)
+
+      const now = new Date()
+      if (DATA.anon_id != id) {
+        setNotCurrentSession(true);
+      }
       if (expiresAt > now) {
         const remainingMs = expiresAt.getTime() - now.getTime()
         const remHrs = Math.floor((remainingMs / (1000 * 60 * 60)) % 24)
         
         setHeaderlabel(`This page will expire in ${remHrs} ${remHrs > 1 ? 'hours' : 'hour'}`)
         setLoading(false)
-        const res = await fetch(`/api/get-messages?anon_id=${id}&token=${token}`)
+        const res = await fetch(`/api/get-messages?anon_id=${DATA.anon_id}&token=${token}`)
         const data = await res.json()
 
         if (data.data.is_success) {
@@ -184,7 +188,7 @@ export default function AnonPage({ params }: AnonPageProps) {
               <Skeleton className="animate-pulse mt-10" enableAnimation height={35} width={120} style={{opacity:".1",background:"#fff"}}/>
             </div>
             </>
-           ) : !expiredUrl ?
+           ) : !expiredUrl && !notCurrentSession ?
            <div className="anon-form">
             <h4 className="fs-13 mt-20" style={{fontWeight:"300"}}>Send another message</h4>
             <textarea spellCheck="false" rows={7} className="fs-92 mt-10" value={user_message} onChange={(e) => {set_message(e.target.value)}}  placeholder="Write a message"></textarea>
