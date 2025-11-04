@@ -146,6 +146,10 @@
         height: 300px;
     }
 
+    .tech-stack-container{
+    overflow: hidden
+    }
+
 }
 
 @media (max-width: 425px){
