@@ -140,10 +140,7 @@ export default function AnonPage({ params }: AnonPageProps) {
       <div className="main-wrapper">
         <div className="text-center">
           { loading ? 
-          
           <Skeleton className="animate-pulse" enableAnimation height={17} style={{opacity:".1",background:"#fff"}} width={250} /> : <p className="fs-13">{headerlabel}</p> }
-          
-          
         </div>
         <div className="messages-wrapper mt-20">
           {

@@ -5,7 +5,8 @@ import icons from "./tech_icons.json";
 import ReactDOM from "react-dom";
 import { motion, useAnimation } from "motion/react";
 import { useInView } from "react-intersection-observer";
-
+import 'react-loading-skeleton/dist/skeleton.css';
+import Slider from "react-slick";
 import { supabase } from "./lib/supabase";
 import { getAnonId } from "./lib/anon";
 
@@ -111,7 +112,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
           </ul>
         </div>
       ) : null}
-       <div className={scrollDirection === "down" ? 'header hide' : 'header'} style={{  transform: scrollDirection === "up" ? "translateY(-100%)" : "translateY(0%)"}}>
+  <div className={scrollDirection === "down" ? 'header hide' : 'header'} style={{  transform: scrollDirection === "up" ? "translateY(-100%)" : "translateY(0%)"}}>
     <div className="header-left">
       <h1 style={{ fontFamily: "var(--font-imperial)" }}>Jiem</h1>
       <ul className="ls">
@@ -283,6 +284,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
     "group": string,
     "description": string,
     "sections" : string[],
+    "images" : string[],
     "hasLiveDemo":boolean,
     "liveUrl":string,
     "dateCreated":string,
@@ -346,29 +348,50 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
   }, [isOpen]);
 
 
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
 
   return (
     <>
       <Modal isOpen={isOpen} onClose={() => {setIsOpen(false)}}>
+
         <div className="modalImageWrapper">
-          <img src={selectedProject?.path}/>
-           {
-          selectedProject?.hasLiveDemo ? (
-           <div className="fs-9 live-demo-btn" style={{color:"#000",cursor:"pointer"}}>Live Demo</div> 
-          ) : null
-          }
+          <Slider className="d-none" {...settings}>
+            {selectedProject?.images.map((src, i) => (
+             
+                <img key={i} src={src}  />
+         
+             
+            
+            ))}
+
+            {/* <img src={selectedProject?.path}/> */}
+            {/* {
+            selectedProject?.hasLiveDemo ? (
+            <div className="fs-9 live-demo-btn" style={{color:"#000",cursor:"pointer"}}>Live Demo</div> 
+            ) : null
+            } */}
+          </Slider>
+          
         </div>
         <br></br>
-        <div>
-          <h2 className="fs-10" style={{color:"var(--orange)",fontWeight:400}}>Project Description</h2>
-          <p className="fs-10" style={{fontWeight:100,marginTop:"5px"}}>{selectedProject?.description}</p>
+        <div className="project-descript-wrapper">
+          <h2 className="fs-13" style={{color:"var(--orange)",fontWeight:400}}>Project Description</h2>
+          <p className="fs-13" style={{fontWeight:100,marginTop:"5px"}}>{selectedProject?.description}</p>
           
              
           {selectedProject?.isClientProject ? 
           (
             <>
-              <h2 className="fs-10" style={{color:"var(--orange)",fontWeight:400, marginTop:"10px"}}>Client Feedback</h2>
-              <p className="fs-10" style={{fontWeight:100,marginTop:"5px",fontStyle:"italic"}}>"{selectedProject?.client_feedback}"</p>
+              <h2 className="fs-13" style={{color:"var(--orange)",fontWeight:400, marginTop:"10px"}}>Client Feedback</h2>
+              <p className="fs-13" style={{fontWeight:100,marginTop:"5px",fontStyle:"italic"}}>"{selectedProject?.client_feedback}"</p>
             </>
           ):
           null}
@@ -384,7 +407,6 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
           <h4 className="fs-h4 lt">Projects</h4> 
         </motion.div>
 
-  
         <div className="projects-container mb-20">
           <div className="projects-menu">
             <ul className="fs-13">
@@ -1237,7 +1259,7 @@ function Preload({ loaded, setLoaded  }: LoadedProps) {
     <>
       {!loaded && ( 
         <div className="preload">
-          <p style={{ padding: "5px" }}>Please wait...</p>
+          <p style={{padding:"5px"}}>Please wait..</p>
         </div>
       )}
     </>

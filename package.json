@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.78.0",
@@ -16,10 +17,13 @@
     "motion": "^12.23.22",
     "next": "15.5.3",
     "next-auth": "^5.0.0-beta.30",
+    "next-sitemap": "^4.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-intersection-observer": "^10.0.0",
     "react-loading-skeleton": "^3.5.0",
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
@@ -30,6 +34,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-slick": "^0.23.13",
     "typescript": "^5"
   }
 }
