@@ -8,7 +8,7 @@ export async function GET(req: Request) {
   .from('convo')
   .select('sender_name')
   .eq("anon_id", anon_id)
-
+  .neq("is_admin", true)
   if (error) return new Response(JSON.stringify({ data: {message: error.message, is_success: false } }), { status: 500 })
   return Response.json({ data: {message: "success", is_success: true, data: data } })
 }
