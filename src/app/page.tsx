@@ -318,7 +318,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
             </div>
           </div>
           <h2 className="fs-13 text-center" style={{fontWeight:"400"}}>{selectedProject?.name}</h2>
-          <h4 className="fs-10 text-center" style={{fontWeight:"200"}}>{selectedProject?.dateCreated}</h4>
+          <h4 className="fs-13 text-center" style={{fontWeight:"200"}}>{selectedProject?.dateCreated}</h4>
           <br></br>
           
           {children}
