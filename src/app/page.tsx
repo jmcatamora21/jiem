@@ -213,7 +213,7 @@ function Projects({ activeIndex, setActiveIndex, loaded }: AppProps) {
   const [group, setGroup] = useState<object[]>([]);
   const [currentGroup, setCurrentGroup] = useState("tools");
   const [currentGroupObject, setCurrentGroupObject] = useState<Group | null>(null);
-  const menuList = ['Browser Tools', 'Mobile Apps', 'UI/UX Designs', 'Websites'];
+  const menuList = ['Browser Tools', 'Mobile Apps', 'Designs', 'Websites'];
   const menuListKeys = ['tools', 'm_apps', 'ui_ux', 'web'];
   const [activeIndex2, setActiveIndex2] = useState(0);
   const [innerMenuActiveIndex, setInnerMenuActiveIndex] = useState(0);
