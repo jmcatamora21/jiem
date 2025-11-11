@@ -106,7 +106,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
               >{section.label}</li>
             ))}
             <li>
-              <a href="/catamora cv.pdf" download={true}>
+              <a href="/CATAMORA RESUME.pdf" download={true}>
               <button className="cv-d-btn active-btn ms fs-13 mt-5"><img src="/download_icon2.svg"/> Download CV</button></a>
             </li>
           </ul>
@@ -132,7 +132,7 @@ function Header({ activeIndex, setActiveIndex, loaded }: AppProps) {
       <img src="/bars_icon.svg"/>
     </div>
     <div className="header-right ls">
-      <a href="/catamora cv.pdf" download={true}><button className="cv-d-btn active-btn"><img src="/download_icon2.svg"/> Download CV</button></a>
+      <a href="/CATAMORA RESUME.pdf" download={true}><button className="cv-d-btn active-btn"><img src="/download_icon2.svg"/> Download CV</button></a>
     </div>
   </div>
   </>
@@ -170,7 +170,7 @@ function Intro({ activeIndex, setActiveIndex, loaded }: AppProps) {
           <h3 style={{fontWeight:"200"}}>a Software Developer</h3>
         </div>
         <div>
-          <a href="/resume.pdf" download={true}><button className="cv-d-btn active-btn ms fs-13 mt-5"><img src="/download_icon2.svg"/>Download CV</button></a>
+          <a href="/CATAMORA RESUME.pdf" download={true}><button className="cv-d-btn active-btn ms fs-13 mt-5"><img src="/download_icon2.svg"/>Download CV</button></a>
         </div>
         <div className={loaded ? 'hero-lower-text-2 hero-fs ls' : ''}>
           <p>I create custom web applications, automation tools,</p>
