@@ -1,16 +1,8 @@
 
 export async function POST(req: Request) {
     
-    const headers = new Headers({
-        "Access-Control-Allow-Origin": "*", // for testing only; restrict in production
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Content-Type": "application/json",
-    });
  
     try {
-
-    
 
     const { text, contextUrl } = await req.json();
 
@@ -39,14 +31,22 @@ export async function POST(req: Request) {
     const data = await response.json();
 
     return new Response(
-      JSON.stringify({ result: data.choices[0].message.content }),
-      { status: 200, headers: headers }
+        JSON.stringify({ result: data.choices[0].message.content }),
+        {
+            status: 200,
+            headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*", // or your frontend origin
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            },
+        }
     );
 
   } catch (err) {
     return new Response(
       JSON.stringify({ result: "Server error" }),
-      { status: 500, headers: headers }
+      { status: 500, headers: {"Content-Type": "application/json"} }
     );
   }
 }
