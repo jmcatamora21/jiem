@@ -1,6 +1,17 @@
 
 export async function POST(req: Request) {
-  try {
+    const headers = new Headers({
+        "Access-Control-Allow-Origin": "*", // allow any origin (for testing)
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Content-Type": "application/json"
+    });
+
+    // Handle preflight OPTIONS request
+    if (req.method === "OPTIONS") {
+        return new Response(null, { headers, status: 204 });
+    }
+    try {
 
     const { text, contextUrl } = await req.json();
 
@@ -18,7 +29,7 @@ export async function POST(req: Request) {
             content: [
               {
                 type: "text",
-                text: `(Instructions: no yapping, simplified if possible, organize with div html element, context ${contextUrl}, no using asterisk, no follow-up questions, organize in html elements no headings, no yapping, respond directly to the user’s request) Explain this: ${text}`
+                text: "(Instructions: no yapping, simplified if possible, organize with div html element, context " + contextUrl + ", no using asterisk, no follow-up questions, organize in html elements no headings, do not wrap the code in ```html or ``` blocks, no yapping, respond directly to the user’s request) Explain this: " + text
               }
             ]
           }
