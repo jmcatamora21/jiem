@@ -15,7 +15,7 @@ export async function POST(req: Request) {
  
     try {
 
-    const { text, contextUrl, host } = await req.json();
+    const { text, contextUrl } = await req.json();
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
