@@ -36,7 +36,7 @@
         "name": "AI Explainer",
         "path": "/ai_explainer.png",
         "group": "tools",
-        "description": "AI Explainer is a browser extension that lets users highlight any text on a webpage, right-click, and instantly get a clear, AI-generated explanation turning the entire web into an interactive learning environment. Unlike simple text explainers, AI Explainer understands the context of the website and adapts its explanations accordingly. Whether you’re reading developer documentation, research papers, or news articles, it tailors the response to match the subject matter delivering more accurate, relevant, and helpful answers.",
+        "description": "AI Explainer is a browser extension that lets users highlight any text on a webpage, right-click, and instantly receive a clear, AI-generated explanation powered by Gemini AI. Unlike basic text explainers, AI Explainer understands the context of the website and tailors its responses to the subject matter. Whether you’re reading developer documentation, research papers, or news articles, it delivers accurate, relevant, and helpful explanations, turning the entire web into an interactive learning environment.",
         "sections" : ["All", "APIs"],
         "images" : ["/ai_explainer1.png","/ai_explainer2.png", "/ai_explainer3.png", "/ai_explainer4.png"],
         "hasLiveDemo":true,
