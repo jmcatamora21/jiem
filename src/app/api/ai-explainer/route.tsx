@@ -2,9 +2,9 @@
 export async function POST(req: Request) {
     
     const headers = new Headers({
-        "Access-Control-Allow-Origin": "*", // allow any origin (for testing)
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Origin": "*", // for testing only; restrict in production
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
         "Content-Type": "application/json",
     });
  
