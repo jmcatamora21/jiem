@@ -1,11 +1,21 @@
 
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
+}
+
 export async function POST(req: Request) {
     
  
     try {
 
     const { text, contextUrl, host } = await req.json();
-
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -35,18 +45,20 @@ export async function POST(req: Request) {
         {
             status: 200,
             headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": host, // or your frontend origin
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type, Authorization",
-            },
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*" 
+            }
         }
     );
 
   } catch (err) {
     return new Response(
       JSON.stringify({ result: "Server error" }),
-      { status: 500, headers: {"Content-Type": "application/json"} }
+      { status: 500, 
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*" 
+        } }
     );
   }
 }
