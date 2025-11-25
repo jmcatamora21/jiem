@@ -1,17 +1,16 @@
 
 export async function POST(req: Request) {
+    
     const headers = new Headers({
         "Access-Control-Allow-Origin": "*", // allow any origin (for testing)
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Content-Type": "application/json"
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Content-Type": "application/json",
     });
-
-    // Handle preflight OPTIONS request
-    if (req.method === "OPTIONS") {
-        return new Response(null, { headers, status: 204 });
-    }
+ 
     try {
+
+    
 
     const { text, contextUrl } = await req.json();
 
@@ -41,13 +40,13 @@ export async function POST(req: Request) {
 
     return new Response(
       JSON.stringify({ result: data.choices[0].message.content }),
-      { status: 200, headers: { "Content-Type": "application/json" } }
+      { status: 200, headers: headers }
     );
 
   } catch (err) {
     return new Response(
       JSON.stringify({ result: "Server error" }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      { status: 500, headers: headers }
     );
   }
 }
