@@ -150,6 +150,18 @@
     overflow: hidden
     }
 
+    .error-404 p {
+        transform: translateY(-250%);
+    }
+
+    .error-404 img {
+        object-position:  center;
+    }
+
+    .error-404{
+        transform: translateY(-10%);
+    }
+
 }
 
 @media (max-width: 425px){
@@ -174,6 +186,8 @@
     .footer-form.form-wrapper > div{
         width: 100% !important; 
     }
+
+    
 }
 
 @media (min-width: 1001px) {
@@ -269,6 +283,16 @@
         height: 350px;
     }
     
+    .error-404 p {
+        transform: translateY(-200%);
+    }
 
+    .error-404 img {
+        object-position: bottom;
+    }
+
+    .error-404{
+        transform: translateY(-20%);
+    }
 
 }
