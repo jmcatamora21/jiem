@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     const data = await response.json();
 
     return new Response(
-        JSON.stringify({ result: data.choices[0].message.content }),
+        JSON.stringify({ result: data.choices[0].message.content }), 
         {
             status: 200,
             headers: {
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
   } catch (err) {
     return new Response(
-      JSON.stringify({ result: "Server error" }),
+      JSON.stringify({ result: "Sorry, we couldn't read the server response. Please try again" }),
       { status: 500, 
         headers: {
             "Content-Type": "application/json",

@@ -455,13 +455,9 @@ async function callModel(messages) {
         })
     });
 
-    let result;
-    try {
-        result = await response.json();
-        return result.choices[0].message.content;
-    } catch (jsonErr) {
-        return "<div>Sorry, we couldn't read the server response. Please try again.</div>";
-    }
+    let data = await response.json();
+    return data.result;
+  
 }
 
 
