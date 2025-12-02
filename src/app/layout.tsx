@@ -57,7 +57,7 @@ export default function RootLayout({
       <body
         className={`${interFont.variable} ${imperialScriptFont.variable} antialiased`}
       >
-        {/* <Script src="/ai-widget.js" strategy="afterInteractive" /> */}
+        <Script src="/ai-widget.js" strategy="afterInteractive" />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"
