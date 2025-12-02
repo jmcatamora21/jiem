@@ -1099,11 +1099,11 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
         const data2 = await send_message.json();
         if (data2.data.is_success) {
           setMessageStatus(2);
-          //setTimeout(async () => {
+          setTimeout(async () => {
             setMessageStatus(0);
             set_message("");
             setIsSending(false);
-          //}, 1000);
+          }, 1000);
 
           const createConvo = await fetch('/api/convo', {
             method: 'POST',
@@ -1245,9 +1245,9 @@ function Contact({ activeIndex, setActiveIndex, loaded }: AppProps) {
                     await sendMessage(user_name, user_message);
                   } else {
                     setBtnClicked(true);
-                    //setTimeout(() => {
+                    setTimeout(() => {
                       setBtnClicked(false);
-                    //}, 2500);
+                    }, 2500);
                   }
                   
                 }
