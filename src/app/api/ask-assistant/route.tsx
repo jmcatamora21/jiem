@@ -11,29 +11,20 @@ export async function OPTIONS() {
 }
 
 export async function POST(req: Request) {
+
     try {
 
-    const { text, contextUrl } = await req.json();
+    const { messages } = await req.json();
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY2}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemma-3-27b-it:free",
-        messages: [
-          {
-            role: "user",
-            content: [
-              {
-                type: "text",
-                text: "(Instructions: no yapping, simplified if possible, organize with div html element, context " + contextUrl + ", no using asterisk, no follow-up questions, organize in html elements no headings, do not wrap the code in ```html or ``` blocks, no yapping, respond directly to the user’s request) Explain this: " + text
-              }
-            ]
-          }
-        ]
-      }),
+          "model": "@preset/john",
+          messages
+      })
     });
 
     const data = await response.json();
