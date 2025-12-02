@@ -445,7 +445,7 @@ document.querySelector(".send-aggnt-message").addEventListener("click", async fu
 })
 
 async function callModel(messages) {
-    const response = await fetch('https://jmcadev.site/api/ai-explainer', {
+    const response = await fetch('https://jmcadev.site/api/ask-assistant', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
