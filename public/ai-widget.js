@@ -1,5 +1,5 @@
 
-var thread = [];                 
+var thread = [];
 var summaryMemory = "";           
 const MAX_MESSAGES = 10;
 var greetTO;
@@ -17,6 +17,8 @@ function canSendMessage(userId) {
     userLastMessageTime.set(userId, now);
     return true;
 }
+
+thread.push({ role: "system", content: "Hello there! How can I help you?" });
 
 const style = document.createElement('style');
 style.textContent = `
@@ -357,8 +359,9 @@ function countUserInput(input){
     return input.length;
 }
 
+
+
 greetTO = setTimeout(() => {
-    thread.push({ role: "system", content: "Hello there! How can I help you?" });
     document.querySelector(".ai-agent-greeting").classList.remove("aggnt-d-none");
     document.querySelector(".ai-agent-chat .aggnt-typing").insertAdjacentHTML("beforebegin", `
     <div class="aagnt-message agent-message">
@@ -445,7 +448,7 @@ document.querySelector(".send-aggnt-message").addEventListener("click", async fu
 })
 
 async function callModel(messages) {
-    const response = await fetch('https://jmcadev.site/api/ask-assistant', {
+    const response = await fetch('https://jmcadev.site/api/ask-assistant', { //https://jmcadev.site/api/ask-assistant
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
