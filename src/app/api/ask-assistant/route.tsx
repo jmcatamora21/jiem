@@ -22,8 +22,8 @@ export async function POST(req: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-          "model": "@preset/john",
-          messages
+        "model": "@preset/john",
+        messages
       })
     });
 

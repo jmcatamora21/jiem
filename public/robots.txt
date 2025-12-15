@@ -1,9 +1,10 @@
 # *
 User-agent: *
+Disallow: /admin/
 Allow: /
 
 # Host
-Host: https://yourdomain.com
+Host: https://jmcadev.site
 
 # Sitemaps
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://jmcadev.site/sitemap.xml

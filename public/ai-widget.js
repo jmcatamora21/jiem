@@ -1,4 +1,3 @@
-
 var thread = [];
 var summaryMemory = "";           
 const MAX_MESSAGES = 10;
@@ -18,7 +17,7 @@ function canSendMessage(userId) {
     return true;
 }
 
-thread.push({ role: "system", content: "Hello there! How can I help you?" });
+thread.push({ role: "assistant", content: "Hello there! How can I help you?" });
 
 const style = document.createElement('style');
 style.textContent = `
@@ -420,6 +419,7 @@ document.querySelector("input[name='usr-query']").addEventListener("keydown", as
             this.value = "";
             insertMessage(val, "user");
             const data = await sendMessage(val);
+            console.log("DATA:", data);
             insertMessage(data, "system");
         }
     }
@@ -448,7 +448,7 @@ document.querySelector(".send-aggnt-message").addEventListener("click", async fu
 })
 
 async function callModel(messages) {
-    const response = await fetch('https://jmcadev.site/api/ask-assistant', { //https://jmcadev.site/api/ask-assistant
+    const response = await fetch('https://jmcadev.site/api/ask-assistant', { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -472,6 +472,7 @@ async function summarizeHistory(oldMessages) {
         Summarize the following conversation into a compact memory (2–5 sentences):
 
         Keep:
+        - User name if provided
         - User goals  
         - Important facts  
         - Decisions made  

@@ -153,7 +153,7 @@ export default function AnonPage({ params }: AnonPageProps) {
                     <div key={index} className="mt-5 ">
                       <div className="left-message">
                         <div className="icon-container">
-                          <img style={{height:20,width:20}} src="/favicon.ico"/>
+                          <img style={{height:20,width:20}} src="/favicon.png"/>
                         </div>
                         <div className="message">
                           <div>
