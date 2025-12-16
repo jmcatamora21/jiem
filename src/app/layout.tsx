@@ -63,7 +63,7 @@ export default function RootLayout({
         <Script src="/ai-widget.js" strategy="afterInteractive" />
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-575M451X8K"
         />
         <Script id="google-analytics">
           {`
